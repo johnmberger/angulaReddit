@@ -36,3 +36,6 @@ input.has-error {
 .has-error, .has-error label {
   color: darkred !important;
 }
+.top-of-page {
+  margin-top: 25px;
+}

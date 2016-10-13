@@ -13,15 +13,56 @@
       <div class="nav-wrapper container">
         <a href="#" class="brand-logo right">Angulareddit JS</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="#">Sass</a></li>
-          <li><a href="#">Components</a></li>
+          <li><a ng-click="showNewPostForm = !showNewPostForm">Submit Post</a></li>
           <li><a href="#">JavaScript</a></li>
         </ul>
       </div>
     </nav>
-    <main class="container">
-      <div ng-controller="postCtrl as postController">
-        <div class="card horizontal" ng-repeat="post in postController.posts | orderBy: '-score'" class="post-content">
+    <main class="container" ng-controller="postCtrl as postController">
+
+      <!-- new post form -->
+      <div class="col s12" ng-show="showNewPostForm">
+        <h2>New Post</h2>
+        <form name="newPostForm" ng-submit="postController.addPost(newPostForm)">
+          <div class="col s12 input-field">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" ng-model="postController.postTitle">
+          </div>
+          <div class="col s12 input-field">
+            <label for="imageURL">Image URL</label>
+            <input type="url" name="imageURL" id="imageURL" ng-model="postController.imageURL" ng-model="postController.imageURL">
+          </div>
+          <div class="col s12 input-field">
+            <label for="Pusername">Your Username</label>
+            <input type="text" name="Pusername" id="Pusername" ng-model="postController.postUsername" ng-model="postController.postUsername">
+          </div>
+          <div class="col s12 input-field">
+            <label for="description">Description</label>
+            <textarea class="materialize-textarea" name="description" id="description" ng-model="postController.postDescription" ng-model="postController.postDescription"></textarea>
+          </div>
+          <input type="submit" class="btn waves-effect waves-light" value="Submit" />
+          <!-- <button ng-click="showNewPostForm = !showNewPostForm" class="btn">Cancel</button> -->
+        </form>
+      </div>
+
+      <!-- title and sort-by -->
+      <div class="row top-of-page">
+        <div class="col m6">
+          <h3>Top Posts</h3>
+        </div>
+        <div class="col m6 input-field">
+          <select id="sortby" ng-model="postController.sort">
+            <option value="-score">Score</option>
+            <option value="-post_time">Most Recent</option>
+            <option value="title">Title (Alphabetical)</option>
+          </select>
+          <label for="sortby">Sort By</label>
+        </div>
+      </div>
+
+      <!-- individual post cards -->
+      <div>
+        <div class="card horizontal" ng-repeat="post in postController.posts | orderBy: postController.sort" class="post-content">
           <div class="card-content row">
             <div class="col l4 m12">
               <img class="responsive-img" ng-src="{{post.image_url}}">
