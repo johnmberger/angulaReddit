@@ -5,12 +5,37 @@
     <title>Untitled</title>
     <!-- styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
-  <body class="container">
-
-    <h1>Test</h1>
-
+  <body>
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo right">Angulareddit JS</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="#">Sass</a></li>
+          <li><a href="#">Components</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container">
+      <div ng-controller="postCtrl as postController">
+        <div class="card horizontal" ng-repeat="post in postController.posts | orderBy: '-score'" class="post-content">
+          <div class="card-content row">
+            <div class="col l4 m12">
+              <img class="responsive-img" ng-src="{{post.image_url}}">
+            </div>
+            <div class="col l8 m12">
+              <h5>{{post.title}}</h5>
+              <p class="votes"><i class="material-icons" ng-click="postController.upVote(post)">thumb_up</i><span ng-class="{positive : post.score > 0, negative : post.score < 0}">{{post.score}}</span><i class="material-icons" ng-click="postController.downVote(post)">thumb_down</i></p>
+              <p>{{post.content}}</p>
+              <p>Posted by: {{post.poster}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <!-- scripts -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>

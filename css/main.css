@@ -1,1 +1,22 @@
-/* add custom styles */
+nav {
+  background-color: #1976d2 !important;
+}
+.votes i {
+  margin: auto 10px;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;
+}
+.votes {
+  font-size: 2rem;
+}
+.positive {
+  color: darkgreen;
+}
+.negative {
+  color: darkred;
+}
