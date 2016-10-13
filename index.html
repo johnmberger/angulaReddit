@@ -2,7 +2,7 @@
 <html lang="en" ng-app='redditClone'>
   <head>
     <meta charset="utf-8">
-    <title>Untitled</title>
+    <title>AngulaReddit JS</title>
     <!-- styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,7 +30,46 @@
               <h5>{{post.title}}</h5>
               <p class="votes"><i class="material-icons" ng-click="postController.upVote(post)">thumb_up</i><span ng-class="{positive : post.score > 0, negative : post.score < 0}">{{post.score}}</span><i class="material-icons" ng-click="postController.downVote(post)">thumb_down</i></p>
               <p>{{post.content}}</p>
-              <p>Posted by: {{post.poster}}</p>
+              <br>
+              <p>Posted {{ post.post_time | timeSince }} by <strong>{{post.poster}}</strong></p>
+              <br>
+              <p>
+                <a class="comment-link" ng-click="showComments = !showComments"><i class="tiny material-icons">comment</i>
+                <ng-pluralize count="post.comments.length"
+                  when="{'0': 'No Comments',
+                        '1': '1 Comment',
+                        'other': '{} Comments'}">
+                </ng-pluralize></a>
+                <span class="divider">|</span>
+                <a class="comment-link" ng-click="showAddComment = !showAddComment"><i class="tiny material-icons">mode_edit</i>
+                Add Comment</a>
+              </p>
+              <div class="col s12" ng-show="showAddComment">
+                <form ng-submit="postController.addComment(post, commentForm)" name="commentForm" >
+                  <div class="row">
+                    <div class="col m4 input-field">
+                      <label ng-attr-for="{{ 'username_' + post.id }}" ng-class="{ 'has-error' : commentForm.username.$invalid && !commentForm.username.$pristine}">Username</label>
+                      <input type="text" name="username" ng-attr-id="{{ 'username_' + post.id }}" ng-model="postController.commentUsername" ng-class="{ 'has-error' : commentForm.username.$invalid && !commentForm.username.$pristine}" ng-minlength="3" required>
+                    </div>
+                    <div class="col m8 input-field">
+                      <input type="text" ng-attr-id="{{ 'comment_' + post.id }}" name="comment" ng-model="postController.commentComment" ng-class="{ 'has-error' : commentForm.comment.$invalid && !commentForm.comment.$pristine}" required>
+                      <label ng-attr-for="{{ 'comment_' + post.id }}" ng-class="{ 'has-error' : commentForm.comment.$invalid && !commentForm.comment.$pristine}">Comment</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <input type="submit" class="btn waves-effect waves-light" value="Submit" />
+                  </div>
+                </form>
+              </div>
+              <div class="col s12" ng-show="showComments">
+                <br>
+                <p ng-repeat="comment in post.comments"><strong>{{comment.commenter}}</strong> said:
+                  <br>
+                {{comment.comment}}
+                <br>
+                <br>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -41,6 +80,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
