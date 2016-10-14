@@ -4,6 +4,18 @@
   var app = angular.module('redditClone', ['ngAnimate']);
   $('select').material_select();
 
+  app.filter('makeSortPretty', function() {
+    return (input) => {
+      if (input === '-score') {
+        return 'Top Posts';
+      } else if (input === '-post_time') {
+        return 'Recent Posts';
+      } else {
+        return 'Posts A - Z';
+      }
+    }
+  })
+
   app.filter('timeSince', function() {
     return (input) => { return moment(`${input}`, 'x').fromNow(); };
   });

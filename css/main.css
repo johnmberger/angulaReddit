@@ -1,3 +1,8 @@
+/* helps ng-cloak work better */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
 nav {
   background-color: #1976d2 !important;
 }
@@ -83,13 +88,4 @@ input.has-error {
 .fade {
   transition: 0.2s linear all;
   opacity: 1;
-}
-
-.slide.ng-hide {
-  transition: 0.4s linear all;
-  max-height: 0;
-}
-.slide {
-  transition: 0.4s linear all;
-  max-height: auto;
 }

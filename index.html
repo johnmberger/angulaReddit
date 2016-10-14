@@ -25,10 +25,10 @@
     <main class="container" ng-app="ngAnimate">
 
       <!-- add post floating button -->
-      <a href="#" class="btn-floating btn-large waves-effect waves-light purple tooltipped" data-position="left" data-delay="40" data-tooltip="New Post" ng-click="formController.toggleFormShow()" ng-show="!formController.showNewPostForm"><i class="material-icons">add</i></a>
+      <a href="#" class="btn-floating btn-large waves-effect waves-light purple tooltipped" data-position="top" data-delay="40" data-tooltip="New Post" ng-click="formController.toggleFormShow()" ng-show="!formController.showNewPostForm"><i class="material-icons">add</i></a>
 
       <!-- new post form -->
-      <div class="col s12 card-panel lime lighten-5" ng-show="formController.showNewPostForm">
+      <div class="col s12 card-panel lime lighten-5 fade" ng-show="formController.showNewPostForm">
         <h2>New Post</h2>
         <form name="newPostForm" ng-submit="postController.addPost(newPostForm); formController.toggleFormShow()">
           <div class="col s12 input-field">
@@ -55,7 +55,7 @@
       <!-- title and sort-by -->
       <div class="row top-of-page">
         <div class="col m6">
-          <h3>Top Posts</h3>
+          <h3>{{postController.sort | makeSortPretty}}</h3>
         </div>
         <div class="col m6 input-field">
           <select id="sortby" ng-model="postController.sort">
