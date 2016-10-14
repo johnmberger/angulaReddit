@@ -12,11 +12,22 @@ nav {
 footer {
   padding: 0 !important;
 }
+.footer-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .copyright {
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-weight: lighter;
+}
+.footer-link {
+  color: white;
+}
+.footer-link:hover {
+  color: lightgrey;
 }
 
 ::-webkit-input-placeholder {
