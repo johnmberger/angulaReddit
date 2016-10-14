@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('redditClone', []);
+  var app = angular.module('redditClone', ['ngAnimate']);
   $('select').material_select();
 
   app.filter('timeSince', function() {
@@ -52,6 +52,7 @@
   });
 
   app.controller('postCtrl', function($scope) {
+
     this.upVote = function(post) {
       this.posts[this.posts.indexOf(post)].score++;
     }
@@ -90,6 +91,8 @@
       newPostForm.$setPristine();
       Materialize.toast('Post successfully added!', 4000);
     }
+
+    this.search = '';
 
     this.commentUsername = '';
     this.commentComment = '';
@@ -175,7 +178,7 @@
         title: 'Does anyone have a good lemonade recipe?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image_url: 'https://media.giphy.com/media/3o85xGocUH8RYoDKKs/giphy.gif',
-        post_time: 1476412699000,
+        post_time: Date.now() - 400000, // seven minutes ago,
         poster: 'kween_bey',
         comments: []
       },

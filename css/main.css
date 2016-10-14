@@ -11,6 +11,18 @@ nav {
   -ms-user-select: none;       /* Internet Explorer/Edge */
   user-select: none;
 }
+.head-search {
+  border: none !important;
+}
+.head-search:focus {
+  border-bottom: 1px solid white !important;
+  box-shadow: none !important;
+}
+
+::-webkit-input-placeholder {
+   color: white;
+}
+
 .votes {
   font-size: 2rem;
 }
@@ -48,6 +60,13 @@ input.has-error {
 .post-content h5 {
   margin-top: 10px;
 }
+
+.btn-floating {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+}
+
 /* change default toast location on desktop */
 @media (min-width: 993px) {
   #toast-container {
@@ -56,4 +75,21 @@ input.has-error {
     bottom: 10%;
     left: 7%;
   }
+}
+.fade.ng-hide {
+  transition: 0.2s linear all;
+  opacity: 0;
+}
+.fade {
+  transition: 0.2s linear all;
+  opacity: 1;
+}
+
+.slide.ng-hide {
+  transition: 0.4s linear all;
+  max-height: 0;
+}
+.slide {
+  transition: 0.4s linear all;
+  max-height: auto;
 }
