@@ -146,7 +146,7 @@
         score: 5,
         title: 'Where can I find PBR in Denver, CO?',
         content: 'Mustache sriracha gastropub man bun fashion axe pork belly. Master cleanse tacos heirloom drinking vinegar gluten-free green juice, etsy mumblecore. Food truck banjo church-key hot chicken subway tile mixtape selvage quinoa plaid, gentrify marfa heirloom. Tbh gluten-free subway tile cray, lyft cornhole cold-pressed glossier polaroid synth banjo normcore crucifix.',
-        image_url: 'https://placecage.com/358/323',
+        image_url: 'https://baconmockup.com/358/323',
         post_time: Date.now() - 300000, // five minutes ago
         poster: 'PM_ME_YOUR_CAT_PIX',
         comments: [
@@ -161,7 +161,7 @@
         score: -14,
         title: 'AngularJS sucks!',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image_url: 'https://placecage.com/251/250',
+        image_url: 'https://placebear.com/251/250',
         post_time: 1476385119000,
         poster: 'negative_nancy',
         comments: [
