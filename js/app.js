@@ -130,15 +130,15 @@
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image_url: 'https://placekitten.com/400/400',
         post_time: Date.now() - 21600000, // 6 hours ago
-        poster: 'dudeman6',
+        poster: 'toughguy123',
         comments: [
           {
             commenter: 'dudeman6',
-            comment: 'This is a sick post!'
+            comment: 'What a cutie!'
           },
           {
             commenter: 'troll1',
-            comment: 'This is a terrible post!'
+            comment: 'I want to smash that thing with a rock.'
           }
         ]
       }, {
