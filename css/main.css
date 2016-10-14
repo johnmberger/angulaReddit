@@ -71,6 +71,19 @@ input.has-error {
 .post-content h5 {
   margin-top: 10px;
 }
+.fill {
+  display: flex;
+  align-items: center;
+  min-width: 33%;
+}
+.responsive-image {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+.row {
+  width: 100% !important;
+}
 
 /* change default toast location on desktop */
 @media (min-width: 993px) {
@@ -96,8 +109,8 @@ input.has-error {
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter,
 .animate-repeat.ng-leave {
-  -webkit-transition: all linear 0.5s;
-  transition: all linear 0.5s;
+  -webkit-transition: all linear 0.7s;
+  transition: all linear 0.7s;
 }
 .animate-repeat.ng-enter-stagger,
 .animate-repeat.ng-leave-stagger,

@@ -21,37 +21,32 @@
   });
 
   app.directive('time',
-    [
-      '$timeout',
-      '$filter',
-      function($timeout, $filter) {
+    ['$timeout', '$filter', function($timeout, $filter) {
 
-        return function(scope, element, attrs) {
-          var time = attrs.time;
-          var timeoutId;
-          var filter = $filter('timeSince');
+      return function(scope, element, attrs) {
+        var time = attrs.time;
+        var timeoutId;
+        var filter = $filter('timeSince');
 
-          function updateTime() {
-            element.text(filter(time));
-          }
+        function updateTime() {
+          element.text(filter(time));
+        }
 
-          function updateLater() {
-            timeoutId = $timeout(function() {
-              updateTime();
-              updateLater();
-            }, 10000);
-          }
+        function updateLater() {
+          timeoutId = $timeout(function() {
+            updateTime();
+            updateLater();
+          }, 10000);
+        }
 
-          element.bind('$destroy', function() {
-            $timeout.cancel(timeoutId);
-          });
+        element.bind('$destroy', function() {
+          $timeout.cancel(timeoutId);
+        });
 
-          updateTime();
-          updateLater();
-        };
-
-      }
-    ]
+        updateTime();
+        updateLater();
+      };
+    }]
   );
 
   app.controller('formCtrl', function() {
@@ -102,6 +97,10 @@
       this.postDescription = '';
       newPostForm.$setPristine();
       Materialize.toast('Post successfully added!', 4000);
+    }
+
+    this.clearSearchForm = function() {
+      this.search = '';
     }
 
     this.search = '';
@@ -200,7 +199,7 @@
         title: 'Do you know where to find marble conference tables?',
         content: 'I\'m looking to have a conference... not until I get a table though.',
         image_url: 'https://i.ytimg.com/vi/v5QfXIqbyXg/hqdefault.jpg',
-        post_time: 1476512593000,
+        post_time: Date.now() - 1600000, // 27 minutes ago
         poster: 'not_kanye_west',
         comments: [
           {
@@ -215,7 +214,7 @@
         title: 'Haaaaave you met ted?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         image_url: 'https://pbs.twimg.com/profile_images/2925485686/23b6d30cdb4e3b6dca5ead7b351f06d1_400x400.jpeg',
-        post_time: 1476511491020,
+        post_time: Date.now() - 100000, // 2 minutes ago
         poster: 'barney_is_awesome',
         comments: [
           {

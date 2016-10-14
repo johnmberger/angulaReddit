@@ -17,7 +17,7 @@
           <div class="input-field">
             <input id="search" type="search" ng-model="postController.search" placeholder="Search Posts" required>
             <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
+            <i ng-click="postController.clearSearchForm()" class="material-icons">close</i>
         </div>
       </form>
       </div>
@@ -30,7 +30,7 @@
       <!-- new post form -->
       <div class="col s12 card-panel lime lighten-5 fade" ng-show="formController.showNewPostForm">
         <h2>New Post</h2>
-        <form name="newPostForm" ng-submit="postController.addPost(newPostForm); formController.toggleFormShow()">
+        <form name="newPostForm" ng-submit="postController.addPost(newPostForm); formController.toggleFormShow()" autocomplete="off">
           <div class="col s12 input-field">
             <label for="title" ng-class="{ 'has-error' : newPostForm.title.$invalid && !newPostForm.title.$pristine}">Title</label>
             <input type="text" name="title" id="title" ng-model="postController.postTitle" ng-class="{ 'has-error' : newPostForm.title.$invalid && !newPostForm.title.$pristine}" ng-minlength="2" minlength="2" required>
@@ -68,10 +68,10 @@
       </div>
 
       <!-- individual post cards -->
-      <div>
+      <div class="col s12">
         <div class="card horizontal animate-repeat" ng-repeat="post in postController.posts | orderBy: postController.sort | filter : postController.search">
           <div class="row">
-            <div class="col l4 m12">
+            <div class="col l4 m12 fill">
               <img class="responsive-img" ng-src="{{post.image_url}}">
             </div>
             <div class="col l8 m12 post-content">
@@ -96,7 +96,7 @@
                 Add Comment</a>
               </p>
               <div class="col s12 fade" ng-show="showAddComment">
-                <form ng-submit="postController.addComment(post, commentForm); showAddComment = !showAddComment; showComments = 'true'" name="commentForm" >
+                <form ng-submit="postController.addComment(post, commentForm); showAddComment = !showAddComment; showComments = 'true'" name="commentForm" autocomplete="off">
                   <div class="row">
                     <div class="col m4 s12 input-field">
                       <label ng-attr-for="{{ 'username_' + post.id }}" ng-class="{ 'has-error' : commentForm.username.$invalid && !commentForm.username.$pristine}">Username</label>
