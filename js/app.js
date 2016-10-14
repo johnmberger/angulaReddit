@@ -8,8 +8,14 @@
     return (input) => {
       if (input === '-score') {
         return 'Top Posts';
+      } else if (input === 'score') {
+        return 'Worst Posts';
+      } else if (input === 'post_time') {
+        return 'Oldest Posts';
       } else if (input === '-post_time') {
         return 'Recent Posts';
+      } else if (input === '-title') {
+        return 'Posts Z - A';
       } else {
         return 'Posts A - Z';
       }

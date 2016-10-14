@@ -61,9 +61,12 @@
         </div>
         <div class="col m6 input-field">
           <select id="sortby" ng-model="postController.sort">
-            <option value="-score">Score</option>
+            <option value="-score">Highest Score</option>
+            <option value="score">Lowest Score</option>
             <option value="-post_time">Most Recent</option>
-            <option value="title">Title (Alphabetical)</option>
+            <option value="post_time">Oldest</option>
+            <option value="title">Title (A - Z)</option>
+            <option value="-title">Title (Z - A)</option>
           </select>
           <label for="sortby">Sort By</label>
         </div>
