@@ -9,6 +9,16 @@ body {
 nav {
   background-color: #512da8 !important;
 }
+footer {
+  padding: 0 !important;
+}
+.copyright {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: lighter;
+}
+
 ::-webkit-input-placeholder {
   color: white;
 }
