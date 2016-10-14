@@ -8,6 +8,40 @@
     return (input) => { return moment(`${input}`, 'x').fromNow(); };
   });
 
+  app.directive('time',
+    [
+      '$timeout',
+      '$filter',
+      function($timeout, $filter) {
+
+        return function(scope, element, attrs) {
+          var time = attrs.time;
+          var timeoutId;
+          var filter = $filter('timeSince');
+
+          function updateTime() {
+            element.text(filter(time));
+          }
+
+          function updateLater() {
+            timeoutId = $timeout(function() {
+              updateTime();
+              updateLater();
+            }, 10000);
+          }
+
+          element.bind('$destroy', function() {
+            $timeout.cancel(timeoutId);
+          });
+
+          updateTime();
+          updateLater();
+        };
+
+      }
+    ]
+  );
+
   app.controller('formCtrl', function() {
     this.showNewPostForm = false;
 
@@ -74,8 +108,8 @@
         score: 5,
         title: 'Test post please ignore',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image_url: 'http://placecage.com/249/250',
-        post_time: 1476204647000,
+        image_url: 'https://placecage.com/249/250',
+        post_time: Date.now() - 21600000, // 6 hours ago
         poster: 'dudeman6',
         comments: [
           {
@@ -92,8 +126,8 @@
         score: 5,
         title: 'What tastes the best over rice?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image_url: 'http://placecage.com/358/323',
-        post_time: Date.now(),
+        image_url: 'https://placecage.com/358/323',
+        post_time: Date.now() - 300000, // five minutes ago
         poster: 'PM_ME_YOUR_CAT_PIX',
         comments: [
           {
@@ -107,7 +141,7 @@
         score: -14,
         title: 'How do you write an AngularJS page?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image_url: 'http://placecage.com/251/250',
+        image_url: 'https://placecage.com/251/250',
         post_time: 1476385119000,
         poster: 'bill_clinton',
         comments: []
@@ -117,7 +151,7 @@
         score: 2,
         title: 'What\'s the best way to slay a vampire?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image_url: 'http://placecage.com/248/250',
+        image_url: 'https://placecage.com/248/250',
         post_time: 1476411599000,
         poster: 'buffy_summers',
         comments: [
@@ -162,7 +196,7 @@
       },
       {
         id: 8,
-        score: 9,
+        score: 3,
         title: 'Haaaaave you met ted?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         image_url: 'https://pbs.twimg.com/profile_images/2925485686/23b6d30cdb4e3b6dca5ead7b351f06d1_400x400.jpeg',

@@ -42,3 +42,18 @@ input.has-error {
 .top-of-page {
   margin-top: 25px;
 }
+.post-content h5, .post-content p {
+  margin: auto 5px;
+}
+.post-content h5 {
+  margin-top: 10px;
+}
+/* change default toast location on desktop */
+@media (min-width: 993px) {
+  #toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left: 7%;
+  }
+}

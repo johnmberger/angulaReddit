@@ -12,12 +12,12 @@
     <nav>
       <div class="nav-wrapper container">
         <a href="#" class="brand-logo right">Angulareddit JS</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <ul class="left">
           <li><a ng-click="formController.toggleFormShow()">Submit Post</a></li>
         </ul>
       </div>
     </nav>
-    <main class="container" ng-controller="postCtrl as postController">
+    <main class="container" ng-controller="postCtrl as postController" ng-app="ngAnimate">
 
       <!-- new post form -->
       <div class="col s12 card-panel lime lighten-5" ng-show="formController.showNewPostForm">
@@ -25,7 +25,7 @@
         <form name="newPostForm" ng-submit="postController.addPost(newPostForm); formController.toggleFormShow()">
           <div class="col s12 input-field">
             <label for="title" ng-class="{ 'has-error' : newPostForm.title.$invalid && !newPostForm.title.$pristine}">Title</label>
-            <input type="text" name="title" id="title" ng-model="postController.postTitle" ng-class="{ 'has-error' : newPostForm.title.$invalid && !newPostForm.title.$pristine}" required>
+            <input type="text" name="title" id="title" ng-model="postController.postTitle" ng-class="{ 'has-error' : newPostForm.title.$invalid && !newPostForm.title.$pristine}" ng-minlength="2" minlength="2" required>
           </div>
           <div class="col s12 input-field">
             <label for="imageURL" ng-class="{ 'has-error' : newPostForm.imageURL.$invalid && !newPostForm.imageURL.$pristine}">Image URL</label>
@@ -66,12 +66,15 @@
             <div class="col l4 m12">
               <img class="responsive-img" ng-src="{{post.image_url}}">
             </div>
-            <div class="col l8 m12">
+            <div class="col l8 m12 post-content">
               <h5>{{post.title}}</h5>
               <p class="votes"><i class="material-icons" ng-click="postController.upVote(post)">thumb_up</i><span ng-class="{positive : post.score > 0, negative : post.score < 0}">{{post.score}}</span><i class="material-icons" ng-click="postController.downVote(post)">thumb_down</i></p>
               <p>{{post.content}}</p>
               <br>
-              <p>Posted {{ post.post_time | timeSince }} by <strong>{{post.poster}}</strong></p>
+              <div>
+
+              </div>
+              <p>Posted <span time="{{post.post_time}}"></span> by <strong>{{post.poster}}</strong></p>
               <br>
               <p>
                 <a class="comment-link" ng-click="showComments = !showComments"><i class="tiny material-icons">comment</i>
@@ -87,11 +90,11 @@
               <div class="col s12" ng-show="showAddComment">
                 <form ng-submit="postController.addComment(post, commentForm)" name="commentForm" >
                   <div class="row">
-                    <div class="col m4 input-field">
+                    <div class="col m4 s12 input-field">
                       <label ng-attr-for="{{ 'username_' + post.id }}" ng-class="{ 'has-error' : commentForm.username.$invalid && !commentForm.username.$pristine}">Username</label>
                       <input type="text" name="username" ng-attr-id="{{ 'username_' + post.id }}" ng-model="postController.commentUsername" ng-class="{ 'has-error' : commentForm.username.$invalid && !commentForm.username.$pristine}" minlength="3" ng-minlength="3" required>
                     </div>
-                    <div class="col m8 input-field">
+                    <div class="col m8 s12 input-field">
                       <input type="text" ng-attr-id="{{ 'comment_' + post.id }}" name="comment" ng-model="postController.commentComment" ng-class="{ 'has-error' : commentForm.comment.$invalid && !commentForm.comment.$pristine}" required>
                       <label ng-attr-for="{{ 'comment_' + post.id }}" ng-class="{ 'has-error' : commentForm.comment.$invalid && !commentForm.comment.$pristine}">Comment</label>
                     </div>
