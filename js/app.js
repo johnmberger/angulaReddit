@@ -176,7 +176,7 @@
         score: 2,
         title: 'What\'s the best way to slay a vampire?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image_url: 'https://placecage.com/248/250',
+        image_url: 'https://baconmockup.com/248/250',
         post_time: 1476411599000,
         poster: 'buffy_summers',
         comments: [
