@@ -26,7 +26,7 @@
     </nav>
     <main class="container" ng-app="ngAnimate">
 
-      <!-- add post floating button -->
+      <!-- add post button -->
       <a href="#" class="btn-floating btn-large waves-effect waves-light purple tooltipped" data-position="top" data-delay="40" data-tooltip="New Post" ng-click="formController.toggleFormShow()" ng-show="!formController.showNewPostForm"><i class="material-icons">add</i></a>
 
       <!-- new post form -->
@@ -100,6 +100,8 @@
                 <a class="comment-link" ng-click="showAddComment = !showAddComment"><i class="tiny material-icons">mode_edit</i>
                 Add Comment</a>
               </p>
+
+              <!-- add comment -->
               <div class="col s12 fade" ng-show="showAddComment">
                 <form ng-submit="postController.addComment(post, commentForm); showAddComment = !showAddComment; showComments = 'true'" name="commentForm" autocomplete="off">
                   <div class="row">
@@ -112,13 +114,14 @@
                       <label ng-attr-for="{{ 'comment_' + post.id }}" ng-class="{ 'has-error' : commentForm.comment.$invalid && !commentForm.comment.$pristine}">Comment</label>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row comment-buttons">
                     <button type="submit" class="btn waves-effect orange waves-light comment-submit" />Submit</button>
                     <button type="button" class="btn waves-effect grey waves-light comment-submit" ng-click="showAddComment = !showAddComment"/>Cancel</button>
-
                   </div>
                 </form>
               </div>
+
+              <!-- comments -->
               <div class="col s12 fade" ng-show="showComments" class="comment-div">
                 <br>
                 <p ng-repeat="comment in post.comments"><strong>{{comment.commenter}}</strong> said:

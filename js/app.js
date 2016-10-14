@@ -20,7 +20,7 @@
         return 'Posts A - Z';
       }
     }
-  })
+  });
 
   app.filter('timeSince', function() {
     return (input) => { return moment(`${input}`, 'x').fromNow(); };
@@ -125,10 +125,10 @@
     this.posts = [
       {
         id: 1,
-        score: 5,
-        title: 'Test post please ignore',
+        score: 7,
+        title: 'Look at my kitten! Isn\'t it cute?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image_url: 'https://placecage.com/249/250',
+        image_url: 'https://placekitten.com/400/400',
         post_time: Date.now() - 21600000, // 6 hours ago
         poster: 'dudeman6',
         comments: [
@@ -144,27 +144,32 @@
       }, {
         id: 2,
         score: 5,
-        title: 'What tastes the best over rice?',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Where can I find PBR in Denver, CO?',
+        content: 'Mustache sriracha gastropub man bun fashion axe pork belly. Master cleanse tacos heirloom drinking vinegar gluten-free green juice, etsy mumblecore. Food truck banjo church-key hot chicken subway tile mixtape selvage quinoa plaid, gentrify marfa heirloom. Tbh gluten-free subway tile cray, lyft cornhole cold-pressed glossier polaroid synth banjo normcore crucifix.',
         image_url: 'https://placecage.com/358/323',
         post_time: Date.now() - 300000, // five minutes ago
         poster: 'PM_ME_YOUR_CAT_PIX',
         comments: [
           {
-            commenter: 'bill_clinton',
-            comment: 'Obviously the ole rice and beans!'
+            commenter: 'mustached_flanel',
+            comment: 'If you ride your fixie up to Cap Hill, look near the vegan jean shorts shop'
           }
         ]
       },
       {
         id: 3,
         score: -14,
-        title: 'How do you write an AngularJS page?',
+        title: 'AngularJS sucks!',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image_url: 'https://placecage.com/251/250',
         post_time: 1476385119000,
-        poster: 'bill_clinton',
-        comments: []
+        poster: 'negative_nancy',
+        comments: [
+          {
+            commenter: 'john_berger',
+            comment: 'no it doesn\'t! This app is awesome.'
+          }
+        ]
       },
       {
         id: 5,

@@ -47,6 +47,9 @@ nav {
 .comment-submit {
   margin: auto;
 }
+.comment-buttons {
+  padding-left: 10px;
+}
 
 /* form styling */
 input.has-error {
