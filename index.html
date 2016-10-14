@@ -8,39 +8,39 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
-  <body>
+  <body ng-controller="formCtrl as formController">
     <nav>
       <div class="nav-wrapper container">
         <a href="#" class="brand-logo right">Angulareddit JS</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a ng-click="showNewPostForm = !showNewPostForm">Submit Post</a></li>
+          <li><a ng-click="formController.toggleFormShow()">Submit Post</a></li>
         </ul>
       </div>
     </nav>
     <main class="container" ng-controller="postCtrl as postController">
 
       <!-- new post form -->
-      <div class="col s12" ng-show="showNewPostForm">
+      <div class="col s12 card-panel lime lighten-5" ng-show="formController.showNewPostForm">
         <h2>New Post</h2>
-        <form name="newPostForm" ng-submit="postController.addPost(newPostForm)">
+        <form name="newPostForm" ng-submit="postController.addPost(newPostForm); formController.toggleFormShow()">
           <div class="col s12 input-field">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" ng-model="postController.postTitle">
+            <label for="title" ng-class="{ 'has-error' : newPostForm.title.$invalid && !newPostForm.title.$pristine}">Title</label>
+            <input type="text" name="title" id="title" ng-model="postController.postTitle" ng-class="{ 'has-error' : newPostForm.title.$invalid && !newPostForm.title.$pristine}" required>
           </div>
           <div class="col s12 input-field">
-            <label for="imageURL">Image URL</label>
-            <input type="url" name="imageURL" id="imageURL" ng-model="postController.imageURL" ng-model="postController.imageURL">
+            <label for="imageURL" ng-class="{ 'has-error' : newPostForm.imageURL.$invalid && !newPostForm.imageURL.$pristine}">Image URL</label>
+            <input type="url" name="imageURL" id="imageURL" ng-model="postController.imageURL" ng-model="postController.imageURL" ng-class="{ 'has-error' : newPostForm.imageURL.$invalid && !newPostForm.imageURL.$pristine}" required>
           </div>
           <div class="col s12 input-field">
-            <label for="Pusername">Your Username</label>
-            <input type="text" name="Pusername" id="Pusername" ng-model="postController.postUsername" ng-model="postController.postUsername">
+            <label for="Pusername" ng-class="{ 'has-error' : newPostForm.Pusername.$invalid && !newPostForm.Pusername.$pristine}">Your Username</label>
+            <input type="text" name="Pusername" id="Pusername" ng-model="postController.postUsername" ng-model="postController.postUsername" ng-class="{ 'has-error' : newPostForm.Pusername.$invalid && !newPostForm.Pusername.$pristine}" required minlength="3" ng-minlength="3">
           </div>
           <div class="col s12 input-field">
             <label for="description">Description</label>
             <textarea class="materialize-textarea" name="description" id="description" ng-model="postController.postDescription" ng-model="postController.postDescription"></textarea>
           </div>
-          <input type="submit" class="btn waves-effect waves-light" value="Submit" />
-          <!-- <button ng-click="showNewPostForm = !showNewPostForm" class="btn">Cancel</button> -->
+          <button type="submit" class="btn waves-effect waves-light">Submit</button>
+          <button type="button" ng-click="formController.toggleFormShow()" class="btn grey">Cancel</button>
         </form>
       </div>
 
@@ -62,7 +62,7 @@
       <!-- individual post cards -->
       <div>
         <div class="card horizontal" ng-repeat="post in postController.posts | orderBy: postController.sort" class="post-content">
-          <div class="card-content row">
+          <div class="row">
             <div class="col l4 m12">
               <img class="responsive-img" ng-src="{{post.image_url}}">
             </div>
@@ -89,7 +89,7 @@
                   <div class="row">
                     <div class="col m4 input-field">
                       <label ng-attr-for="{{ 'username_' + post.id }}" ng-class="{ 'has-error' : commentForm.username.$invalid && !commentForm.username.$pristine}">Username</label>
-                      <input type="text" name="username" ng-attr-id="{{ 'username_' + post.id }}" ng-model="postController.commentUsername" ng-class="{ 'has-error' : commentForm.username.$invalid && !commentForm.username.$pristine}" ng-minlength="3" required>
+                      <input type="text" name="username" ng-attr-id="{{ 'username_' + post.id }}" ng-model="postController.commentUsername" ng-class="{ 'has-error' : commentForm.username.$invalid && !commentForm.username.$pristine}" minlength="3" ng-minlength="3" required>
                     </div>
                     <div class="col m8 input-field">
                       <input type="text" ng-attr-id="{{ 'comment_' + post.id }}" name="comment" ng-model="postController.commentComment" ng-class="{ 'has-error' : commentForm.comment.$invalid && !commentForm.comment.$pristine}" required>
@@ -97,11 +97,11 @@
                     </div>
                   </div>
                   <div class="row">
-                    <input type="submit" class="btn waves-effect waves-light" value="Submit" />
+                    <button type="submit" class="btn waves-effect orange waves-light comment-submit" />Submit</button>
                   </div>
                 </form>
               </div>
-              <div class="col s12" ng-show="showComments">
+              <div class="col s12" ng-show="showComments" class="comment-div">
                 <br>
                 <p ng-repeat="comment in post.comments"><strong>{{comment.commenter}}</strong> said:
                   <br>
@@ -120,6 +120,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src=""//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-animate.js""></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>

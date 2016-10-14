@@ -8,6 +8,15 @@
     return (input) => { return moment(`${input}`, 'x').fromNow(); };
   });
 
+  app.controller('formCtrl', function() {
+    this.showNewPostForm = false;
+
+    this.toggleFormShow = function() {
+      this.showNewPostForm = !this.showNewPostForm;
+    }
+
+  });
+
   app.controller('postCtrl', function($scope) {
     this.upVote = function(post) {
       this.posts[this.posts.indexOf(post)].score++;
@@ -45,6 +54,7 @@
       this.postUsername = '';
       this.postDescription = '';
       newPostForm.$setPristine();
+      Materialize.toast('Post successfully added!', 4000);
     }
 
     this.commentUsername = '';
