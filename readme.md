@@ -8,3 +8,6 @@ This reddit clone has posts, comments, searching, sorting, animations, and more!
 * Users can create a new post
 * Users can comment on posts
 * Posts dynamically show how long ago they were posted and update every 10 seconds
+* Mobile-friendly
+
+Live: https://johnmberger.github.io/angulaReddit/
