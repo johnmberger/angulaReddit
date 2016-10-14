@@ -222,7 +222,7 @@
       {
         id: 8,
         score: 3,
-        title: 'Haaaaave you met ted?',
+        title: 'Do you guys like magic?',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         image_url: 'https://pbs.twimg.com/profile_images/2925485686/23b6d30cdb4e3b6dca5ead7b351f06d1_400x400.jpeg',
         post_time: Date.now() - 100000, // 2 minutes ago
@@ -230,7 +230,7 @@
         comments: [
           {
             commenter: 'mr_mosby',
-            comment: 'This line never works...'
+            comment: 'Not again...'
           }
         ]
       }
