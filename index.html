@@ -69,7 +69,7 @@
 
       <!-- individual post cards -->
       <div>
-        <div class="card horizontal" ng-repeat="post in postController.posts | orderBy: postController.sort | filter : postController.search" class="post-content" ng-animate="'animate'">
+        <div class="card horizontal animate-repeat" ng-repeat="post in postController.posts | orderBy: postController.sort | filter : postController.search">
           <div class="row">
             <div class="col l4 m12">
               <img class="responsive-img" ng-src="{{post.image_url}}">

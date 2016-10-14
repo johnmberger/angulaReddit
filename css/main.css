@@ -3,9 +3,15 @@
   display: none !important;
 }
 
+/* navbar */
 nav {
   background-color: #1976d2 !important;
 }
+::-webkit-input-placeholder {
+  color: white;
+}
+
+/* votes styling */
 .votes i {
   margin: auto 10px;
   cursor: pointer;
@@ -16,18 +22,6 @@ nav {
   -ms-user-select: none;       /* Internet Explorer/Edge */
   user-select: none;
 }
-.head-search {
-  border: none !important;
-}
-.head-search:focus {
-  border-bottom: 1px solid white !important;
-  box-shadow: none !important;
-}
-
-::-webkit-input-placeholder {
-   color: white;
-}
-
 .votes {
   font-size: 2rem;
 }
@@ -41,6 +35,8 @@ nav {
   margin: auto 10px;
   background-color: white;
 }
+
+/* comment styling */
 .comment-link {
   color: dimgrey;
   text-decoration: none;
@@ -49,6 +45,8 @@ nav {
 .comment-submit {
   margin: auto;
 }
+
+/* form styling */
 input.has-error {
   border-bottom: 1px solid darkred !important;
   box-shadow: 0 1px 0 0 darkred !important;
@@ -59,17 +57,19 @@ input.has-error {
 .top-of-page {
   margin-top: 25px;
 }
-.post-content h5, .post-content p {
-  margin: auto 5px;
-}
-.post-content h5 {
-  margin-top: 10px;
-}
 
 .btn-floating {
   position: fixed;
   right: 5%;
   bottom: 5%;
+}
+
+/* post styling */
+.post-content h5, .post-content p {
+  margin: auto 5px;
+}
+.post-content h5 {
+  margin-top: 10px;
 }
 
 /* change default toast location on desktop */
@@ -81,11 +81,39 @@ input.has-error {
     left: 7%;
   }
 }
+
+/* fade comments on open and close */
 .fade.ng-hide {
   transition: 0.2s linear all;
   opacity: 0;
 }
 .fade {
   transition: 0.2s linear all;
+  opacity: 1;
+}
+
+/* animate on sort and search */
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.animate-repeat.ng-enter-stagger,
+.animate-repeat.ng-leave-stagger,
+.animate-repeat.ng-move-stagger {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity: 0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
   opacity: 1;
 }
