@@ -66,6 +66,9 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }
+.comment-link:hover {
+  color: teal;
+}
 .comment-submit {
   margin: auto;
 }
