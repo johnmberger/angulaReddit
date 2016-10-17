@@ -1,6 +1,6 @@
-# AngularJS Reddit Clone
+# Bramble: an AngularJS Reddit Clone
 
-This reddit clone has posts, comments, searching, sorting, animations, and more!
+This reddit clone has posts, comments, searching, sorting, and more!
 
 ## Features:
 
