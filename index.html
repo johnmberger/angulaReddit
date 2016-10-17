@@ -84,9 +84,6 @@
               <p class="votes"><i class="material-icons" ng-click="postController.upVote(post)">thumb_up</i><span ng-class="{positive : post.score > 0, negative : post.score < 0}">{{post.score}}</span><i class="material-icons" ng-click="postController.downVote(post)">thumb_down</i></p>
               <p>{{post.content}}</p>
               <br>
-              <div>
-
-              </div>
               <p>Posted <span time="{{post.post_time}}"></span> by <strong>{{post.poster}}</strong></p>
               <br>
               <p>

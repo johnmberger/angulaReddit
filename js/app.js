@@ -2,6 +2,7 @@
   'use strict';
 
   var app = angular.module('redditClone', ['ngAnimate']);
+
   $('select').material_select();
 
   app.filter('makeSortPretty', function() {
