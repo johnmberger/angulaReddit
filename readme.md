@@ -11,4 +11,4 @@ This reddit clone has posts, comments, searching, sorting, animations, and more!
 * Angular form validation
 * Mobile-friendly
 
-Live: https://johnmberger.github.io/angularReddit/
+Live: https://johnmberger.github.io/bramble/
