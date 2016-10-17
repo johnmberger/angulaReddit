@@ -2,10 +2,12 @@
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
+
 body {
   background: whitesmoke;
 }
-/* navbar */
+
+/* navs */
 nav {
   background-color: #512da8 !important;
 }
@@ -29,7 +31,6 @@ footer {
 .footer-link:hover {
   color: lightgrey;
 }
-
 ::-webkit-input-placeholder {
   color: white;
 }
@@ -84,6 +85,7 @@ input.has-error {
   margin-top: 25px;
 }
 
+/* add post btn */
 .btn-floating {
   position: fixed;
   right: 5%;
